@@ -7,3 +7,11 @@ Package workqueue provides a simple queue that supports the following
   * Multiple consumers and producers. In particular, it is allowed for an
       item to be reenqueued while it is being processed.
   * Shutdown notifications.
+
+Package also contains simple Parallelization functions. The functions allow
+for parallel processing of certain work; that is, given the input (either as 
+a slice or through an input chan), the desired number of workers and the
+WorkFunc that will be called for each input item, the Parallizer method will
+start the worker go routines. Also, supported is a shutdown input chan which
+can be used to shutdown the processing before all the work items have been
+processed. 
